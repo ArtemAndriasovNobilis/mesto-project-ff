@@ -20,12 +20,12 @@
                     <div class="profile__info">
                         <div class="profile__name-section">
                             <h1 class="profile__name">Жак-Ив Кусто</h1>
-                            <button class="profile__edit-button profile__edit-button_popup-open"></button>
+                            <button type="button" class="profile__edit-button" aria-label="Редактировать профиль"></button>
                         </div>
                         <p class="profile__description">Исследователь океана</p>
                     </div>
                 </div>
-                <button class="profile__add-button"></button>
+                <button type="button" class="profile__add-button" aria-label="Опубликовать фото"></button>
             </section>
             <section class="elements">
                 <ul class="elements__table">
@@ -33,42 +33,42 @@
                         <img src="./images/Ostrov-Vrangelya.jpg" alt="Фото острова Врангеля" class="element__image">
                         <div class="element__info-block">
                             <h2 class="element__title">Остров Врангеля</h2>
-                            <button class="element__like"></button>
+                            <button type="button" class="element__like" aria-label="Отметка Нравится"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img src="./images/Kyrshskaya-kosa.jpg" alt="Фото Куршской косы" class="element__image">
                         <div class="element__info-block">
                             <h2 class="element__title">Куршская коса</h2>
-                            <button class="element__like"></button>
+                            <button type="button" class="element__like" aria-label="Отметка Нравится"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img src="./images/Plato-Putorana.jpg" alt="Фото плато Путорана" class="element__image">
                         <div class="element__info-block">
                             <h2 class="element__title">Плато Путорана</h2>
-                            <button class="element__like"></button>
+                            <button type="button" class="element__like" aria-label="Отметка Нравится"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img src="./images/Rybinsk.jpg" alt="Фото города Рыбинск" class="element__image">
                         <div class="element__info-block">
                             <h2 class="element__title">Рыбинск</h2>
-                            <button class="element__like"></button>
+                            <button type="button" class="element__like" aria-label="Отметка Нравится"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img src="./images/Seliger.jpg" alt="Фото Озера Селигер" class="element__image">
                         <div class="element__info-block">
                             <h2 class="element__title">Селигер</h2>
-                            <button class="element__like"></button>
+                            <button type="button" class="element__like" aria-label="Отметка Нравится"></button>
                         </div>
                     </li>
                     <li class="element">
                         <img src="./images/Vylkany-Kamchatki.jpg" alt="Фото вулканов Камчатки" class="element__image">
                         <div class="element__info-block">
                             <h2 class="element__title">Вулканы Камчатки</h2>
-                            <button class="element__like"></button>
+                            <button type="button" class="element__like" aria-label="Отметка Нравится"></button>
                         </div>
                     </li>
                 </ul>
@@ -80,14 +80,14 @@
     </div>
     <div class="popup">
         <div class="popup__content">
-            <button class="popup__close-btn" type="button"></button>
+            <button type="button" class="popup__close-btn" aria-label="Закрытие попапа"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <form action="#" class="popup__edit-form">
+            <form name="edit-form" action="#" class="popup__edit-form">
                 <div class="popup__fields">
-                    <input type="text" class="popup__field popup__field_key_name" placeholder="Имя">
-                    <input type="text" class="popup__field popup__field_key_job" placeholder="Профессия">
+                    <input name="Name" type="text" class="popup__field popup__field_key_name" placeholder="Имя">
+                    <input name="Job" type="text" class="popup__field popup__field_key_job" placeholder="Профессия">
                 </div>
-                <button class="popup__save-btn" type="submit">Сохранить</button>
+                <button type="submit" class="popup__save-btn" aria-label="Сохранить изменения" >Сохранить</button>
             </form>
         </div>
     </div>
