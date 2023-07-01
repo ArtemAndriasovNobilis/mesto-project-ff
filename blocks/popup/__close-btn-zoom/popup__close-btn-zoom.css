@@ -1,0 +1,11 @@
+.popup__close-btn-zoom {
+
+}
+
+@media screen and (max-width: 450px) {
+    .popup__close-btn-zoom {
+      position: absolute;
+      top: -40px;
+      right: 36px;
+    }   
+}
