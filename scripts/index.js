@@ -32,14 +32,39 @@ const cardTemplate = document.querySelector('#card-element');
 
 const cardsContainer = document.querySelector('.elements');
 
+const popup = document.querySelectorAll('.popup');
+
+
+// универсальное закрытие попапа на esc
+
+function closePopupEsc (evt) {
+  if (evt.key === 'Escape') {
+    popup.forEach(closePopup);
+  }
+}
+
+// универсальное закрытие попапа на оверлей
+
+const popupCloseOverlay = (evt) => {
+  const popupOverlay = evt.target.classList.contains('popup');
+
+  if (popupOverlay) {
+    popup.forEach(closePopup);
+  }
+};
+
 // универсальные функции открытия и закрытия попапов
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+  document.addEventListener('mousedown', popupCloseOverlay);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc);
+  document.removeEventListener('mousedown', popupCloseOverlay);
 }
 
 // чтобы данные в форме редактирования профиля соответствовали сохраненным данным в профиле
@@ -151,7 +176,7 @@ popupNewItemFormClose.addEventListener('click', function () {
 });
 popupNewItemAdd.addEventListener('submit', processNewItemSubmit);
 
-// слушатели папапа с увеличением
+// слушатели попапа с увеличением
 
 popupZoomCardClose.addEventListener('click', function () {
   closePopup(popupZoomCard);
@@ -165,7 +190,7 @@ popupEditBtnOpen.addEventListener('click', function () {
 popupEditBtnClose.addEventListener('click', function () {
   closePopup(popupEdit);
 });
-popupEditBtnOpen.addEventListener('click', setForm);
+popupEditBtnOpen.addEventListener('click', setForm); 
 formEditProfile.addEventListener('submit', processFormSubmit);
 
 

@@ -30,11 +30,14 @@
 @import url(../blocks/popup/__close-btn/popup__close-btn.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__save-btn/popup__save-btn.css);
+@import url(../blocks/popup/__save-btn/_disabled/popup__save-btn_disabled.css);
 @import url(../blocks/popup/__field/popup__field.css);
+@import url(../blocks/popup/__field/_error/popup__field_error.css);
 @import url(../blocks/popup/__form/_edit/popup__edit-form.css);
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__card-info/popup__card-info.css);
 @import url(../blocks/popup/__zoom-block/popup__zoom-block.css);
 @import url(../blocks/popup/_zoom-card/popup_zoom-card.css);
 @import url(../blocks/popup/__close-btn/_zoom/popup__close-btn_zoom.css);
+@import url(../blocks/popup/__input-error/popup__input-error.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
