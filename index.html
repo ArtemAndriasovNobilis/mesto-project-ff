@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./pages/index.css">
+    <script defer src="./scripts/constants.js"></script>
+    <script defer src="./scripts/validate.js"></script>
+    <script defer src="./scripts/initial-cards.js"></script>
+    <script defer src="./scripts/index.js"></script>
     <title>Mesto</title>
 </head>
 
@@ -51,12 +55,15 @@
             <h2 class="popup__title">Редактировать профиль</h2>
             <form name="edit-form" action="#" class="popup__form popup__form_edit" novalidate>
                 <div class="popup__fields">
-                    <input name="Name" type="text" class="popup__field popup__field_key_name" placeholder="Имя" id="name" minlength="2" maxlength="40" required>
+                    <input name="Name" type="text" class="popup__field popup__field_key_name" placeholder="Имя"
+                        id="name" minlength="2" maxlength="40" required>
                     <span class="popup__input-error" id="name-error"></span>
-                    <input name="Job" type="text" class="popup__field popup__field_key_job" placeholder="Профессия" id="job" minlength="2" maxlength="200" required>
+                    <input name="Job" type="text" class="popup__field popup__field_key_job" placeholder="Профессия"
+                        id="job" minlength="2" maxlength="200" required>
                     <span class="popup__input-error" id="job-error"></span>
                 </div>
-                <button type="submit" class="popup__save-btn" aria-label="Сохранить изменения" disabled>Сохранить</button>
+                <button type="submit" class="popup__save-btn" aria-label="Сохранить изменения"
+                    disabled>Сохранить</button>
             </form>
         </div>
     </div>
@@ -67,9 +74,11 @@
             <h2 class="popup__title">Новое место</h2>
             <form name="new-item-form" action="#" class="popup__form popup__form_new-item" novalidate>
                 <div class="popup__fields">
-                    <input name="Title" type="text" class="popup__field popup__field_item_name" placeholder="Название" id="title" minlength="2" maxlength="30" required>
+                    <input name="Title" type="text" class="popup__field popup__field_item_name" placeholder="Название"
+                        id="title" minlength="2" maxlength="30" required>
                     <span class="popup__input-error" id="title-error"></span>
-                    <input name="Link" type="url" class="popup__field popup__field_item_link" placeholder="Ссылка на картинку" id="link" required>
+                    <input name="Link" type="url" class="popup__field popup__field_item_link"
+                        placeholder="Ссылка на картинку" id="link" required>
                     <span class="popup__input-error" id="link-error"></span>
                 </div>
                 <button type="submit" class="popup__save-btn" aria-label="Создать" disabled>Создать</button>
@@ -83,9 +92,6 @@
             <button type="button" class="popup__close-btn popup__close-btn_zoom" aria-label="Закрытие попапа"></button>
         </div>
     </div>
-    <script src="./scripts/validate.js"></script>
-    <script src="./scripts/initial-cards.js"></script>
-    <script src="./scripts/index.js"></script>
 </body>
 
 </html>
