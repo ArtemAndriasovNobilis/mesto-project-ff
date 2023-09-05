@@ -1,4 +1,4 @@
-const initialCards = [
+export const initialCards = [
   {
     name: 'Остров Врангеля',
     link: 'https://sun6-23.userapi.com/impg/CLJif25bFR361cciVp0waRCxv5ZmV6dCbO4qeg/9Nl3XRk5F8w.jpg?size=525x508&quality=95&sign=ff3542c2406384a73c2309f83db5be30&type=album'

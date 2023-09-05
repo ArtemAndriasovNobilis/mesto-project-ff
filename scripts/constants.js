@@ -1,4 +1,4 @@
-const validationSettings = {
+export const validationSettings = {
     formSelector: '.popup__form',
     inputSelector: '.popup__field',
     submitButtonSelector: '.popup__save-btn',
