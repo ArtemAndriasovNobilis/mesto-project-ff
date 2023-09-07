@@ -76,14 +76,16 @@ function processProfileFormSubmit(evt) {
 }
 
 // попап редактирования профиля, события открытия, закрытия, сохранения изменений 
-popupEditBtnOpen.addEventListener('click', function () {
+popupEditBtnOpen.addEventListener("click", function () {
   openPopup(popupEdit);
+  setProfileFormData();
 });
-popupEditBtnClose.addEventListener('click', function () {
+
+popupEditBtnClose.addEventListener("click", function () {
   closePopup(popupEdit);
 });
-popupEditBtnOpen.addEventListener('click', setProfileFormData);
-formEditProfile.addEventListener('submit', processProfileFormSubmit);
+
+formEditProfile.addEventListener("submit", processProfileFormSubmit);
 
 //открытие попапа добавления карточки 
 popupNewItemOpen.addEventListener("click", function () {
