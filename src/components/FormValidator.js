@@ -32,7 +32,7 @@ class FormValidator {
     return this._inputList.some(inputElement => !inputElement.validity.valid);
   }
 
-  // отелючение кнопки 
+  //отелючение кнопки 
   disableButton() {
     this._submitButton.classList.add(this._validationSettings.inactiveButtonClass);
     this._submitButton.disabled = true;

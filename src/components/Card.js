@@ -1,15 +1,9 @@
-import {
-    openPopup,
-    popupZoomCard,
-    popupCardInfo,
-    popupImage
-} from "./index.js";
-
-export class Card {
-    constructor(cardInfo, templateSelector) {
+export default class Card {
+    constructor(cardInfo, templateSelector, handleCardClick) {
         this._templateSelector = templateSelector;
         this._name = cardInfo.name;
         this._link = cardInfo.link;
+        this.handleCardClick = handleCardClick;
     }
 
     //создание template 
@@ -40,14 +34,6 @@ export class Card {
         this._likeButton.classList.toggle("element__like_active");
     }
 
-    //открытие карточки 
-    _openImage() {
-        openPopup(popupZoomCard);
-        popupImage.src = this._link;
-        popupImage.alt = this._name;
-        popupCardInfo.textContent = this._name;
-    }
-
     //Слушатели - удаление, лайк, открытие
     _setEventListeners() {
         const deleteButton = this._newCard.querySelector(".element__delete");
@@ -57,7 +43,7 @@ export class Card {
             this._likeClick();
         });
         this._elementImage.addEventListener("click", () => {
-            this._openImage();
+            this.handleCardClick({ name: this._name, link: this._link });
         });
     }
 
