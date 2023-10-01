@@ -4,19 +4,18 @@ export default class PopupWithForm extends Popup {
   constructor({ popup, submitHandler }) {
     super(popup);
     this._form = this._popup.querySelector(".popup__form");
-    this._fields = this._form.querySelectorAll(".popup__field");
+    this._fields = Array.from(this._form.querySelectorAll(".popup__field"));
     this._submitHandler = submitHandler;
   }
 
 
   //Получение данных 
   _getInputValues() {
-    this._fieldList = Array.from(this._fields);
-    this._values = {};
-    this._fieldList.forEach((input) => {
-      this._values[input.name] = input.value;
+    const values = {};
+    this._fields.forEach((input) => {
+      values[input.name] = input.value;
     });
-    return this._values;
+    return values;
   }
 
   //Слушатели

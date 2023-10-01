@@ -1,7 +1,7 @@
 export default class Card {
     constructor(cardInfo, templateSelector, handleCardClick) {
         this._templateSelector = templateSelector;
-        this._name = cardInfo.name;
+        this._title = cardInfo.title;
         this._link = cardInfo.link;
         this.handleCardClick = handleCardClick;
     }
@@ -17,10 +17,10 @@ export default class Card {
     //добавление данных
     _addInfo() {
         const elementTitle = this._newCard.querySelector(".element__title");
-        elementTitle.textContent = this._name;
+        elementTitle.textContent = this._title;
         this._elementImage = this._newCard.querySelector(".element__image");
         this._elementImage.src = this._link;
-        this._elementImage.alt = this._name;
+        this._elementImage.alt = this._title;
     };
 
     //удаление элемента
@@ -43,7 +43,7 @@ export default class Card {
             this._likeClick();
         });
         this._elementImage.addEventListener("click", () => {
-            this.handleCardClick({ name: this._name, link: this._link });
+            this.handleCardClick({ title: this._title, link: this._link });
         });
     }
 

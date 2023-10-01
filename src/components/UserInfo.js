@@ -1,14 +1,14 @@
 export default class UserInfo {
-    constructor({ nameSelector, descriptionSelector }) {
-        this._name = nameSelector;
-        this._job = descriptionSelector;
+    constructor({ profileName, profileDescription }) {
+        this._name = profileName;
+        this._job = profileDescription;
     }
 
     //Получение данных 
     getUserInfo() {
         return {
-            nameSelector: this._name.textContent,
-            descriptionSelector: this._job.textContent,
+            profileName: this._name.textContent,
+            profileDescription: this._job.textContent,
         };
     }
 
