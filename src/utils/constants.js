@@ -7,3 +7,4 @@ export const profileDescription = document.querySelector('.profile__description'
 export const popupImage = document.querySelector('.popup_zoom-card');
 export const popupNewItemOpen = document.querySelector('.profile__add-button');
 export const popupNewItemAdd = document.querySelector('.popup_item-add');
+export const popupDelete = document.querySelector(".popup_delete-card");
