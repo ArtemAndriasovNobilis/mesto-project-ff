@@ -1,57 +1,36 @@
-export default class Card {
-    constructor(cardInfo, templateSelector, handleCardClick) {
-        this._templateSelector = templateSelector;
-        this._title = cardInfo.title;
-        this._link = cardInfo.link;
-        this.handleCardClick = handleCardClick;
-    }
+const cardTemplate = document.querySelector('#card-element');
 
-    //создание template 
-    _getTemplate() {
-        const template = document.querySelector(this._templateSelector)
-            .content.querySelector(".element")
-            .cloneNode(true);
-        return template;
-    }
+export function createCardElement(item) {
+    const cardElement = cardTemplate.content.querySelector('.element').cloneNode(true);
+    const cardTitle = cardElement.querySelector('.element__title');
+    const cardImage = cardElement.querySelector('.element__image');
+    const cardDelete = cardElement.querySelector('.element__delete');
+    const cardLike = cardElement.querySelector('.element__like');
 
-    //добавление данных
-    _addInfo() {
-        const elementTitle = this._newCard.querySelector(".element__title");
-        elementTitle.textContent = this._title;
-        this._elementImage = this._newCard.querySelector(".element__image");
-        this._elementImage.src = this._link;
-        this._elementImage.alt = this._title;
+    cardImage.src = item.link;
+    cardImage.alt = item.name;
+    cardTitle.textContent = item.name;
+
+    // лайк и удаление карточек
+
+    const processDelete = () => {
+        cardElement.remove();
     };
 
-    //удаление элемента
-    _deleteElement() {
-        this._newCard.remove();
-        this._newCard = null;
+    const processLike = () => {
+        cardLike.classList.toggle('element__like_active');
     }
 
-    //лайк
-    _likeClick() {
-        this._likeButton.classList.toggle("element__like_active");
-    }
+    // увеличение изображения
 
-    //Слушатели - удаление, лайк, открытие
-    _setEventListeners() {
-        const deleteButton = this._newCard.querySelector(".element__delete");
-        deleteButton.addEventListener("click", this._deleteElement.bind(this));
-        this._likeButton = this._newCard.querySelector(".element__like");
-        this._likeButton.addEventListener("click", () => {
-            this._likeClick();
-        });
-        this._elementImage.addEventListener("click", () => {
-            this.handleCardClick({ title: this._title, link: this._link });
-        });
-    }
 
-    //создание нового поста
-    addCard() {
-        this._newCard = this._getTemplate();
-        this._addInfo();
-        this._setEventListeners();
-        return this._newCard;
-    }
-}
+    cardDelete.addEventListener('click', processDelete);
+    cardLike.addEventListener('click', processLike);
+
+    cardImage.addEventListener('click', () => {
+        setImage(evt);
+        openPopup(popupZoomCard);
+    });
+
+    return cardElement;
+};
