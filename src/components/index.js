@@ -1,7 +1,7 @@
 import '../pages/index.css';
 import { initialCards } from "./cards.js";
 import { closePopup, openPopup, } from "./modal.js";
-import { createCardElement } from "./card.js";
+import { createCardElement, processDelete, processLike } from "./card.js";
 
 // переменные 
 
@@ -36,12 +36,19 @@ const popupNewItemFormClose = document.querySelector('.popup__close-btn_new-item
 const cardsContainer = document.querySelector('.elements');
 
 
+
 // чтобы данные в форме редактирования профиля соответствовали сохраненным данным в профиле
 
 function setForm() {
   nameInput.value = resultName.textContent;
   jobInput.value = resultJob.textContent;
 }
+
+function addCard(item, container) {
+  const card = createCardElement(item, processDelete, processLike, setImage);
+  container.append(card);
+
+};
 
 // сохранение данных из полей ввода 
 
@@ -55,17 +62,13 @@ function processFormSubmit(evt) {
 
 };
 
-function setImage() {
-  popupImage.src = item.link;
-  popupImage.alt = item.name;
-  popupCardInfo.textContent = evt.item.name;
+function setImage(evt) {
+  popupImage.src = evt.target.src;
+  popupImage.alt = evt.target.alt;
+  popupCardInfo.textContent = evt.target.alt;
+  openPopup(popupZoomCard);
 };
 
-function addCard(item, container) {
-  const card = createCardElement(item);
-  container.append(card);
-
-};
 
 initialCards.forEach((item) => {
   addCard(item, cardsContainer, setImage);
@@ -87,7 +90,7 @@ const processNewItemSubmit = (event) => {
     container.prepend(cardElement);
   };
 
-  const cardElement = createCardElement(cardData);
+  const cardElement = createCardElement(cardData, processDelete, processLike, setImage);
   addNewItem(cardElement, cardsContainer);
   closePopup(popupNewItemAdd);
 
@@ -114,11 +117,11 @@ popupZoomCardClose.addEventListener('click', function () {
 
 // попап редактирования профиля, события открытия, закрытия, сохранения изменений 
 
-popupEditBtnOpen.addEventListener('click', function () {
-  openPopup(popupEdit);
-});
+popupEditBtnOpen.addEventListener('click', function () { 
+  openPopup(popupEdit); 
+  setForm()
+}); 
 popupEditBtnClose.addEventListener('click', function () {
   closePopup(popupEdit);
 });
-popupEditBtnOpen.addEventListener('click', setForm);
 formEditProfile.addEventListener('submit', processFormSubmit);

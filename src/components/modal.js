@@ -8,7 +8,7 @@ export function closePopupByEsc(evt) {
   
   // универсальное закрытие попапа на оверлей
   
- export const popupCloseOverlay = (evt) => {
+ export const closePopupOverlay = (evt) => {
     const isPopupOverlay = evt.target.classList.contains('popup');
   
     if (isPopupOverlay) {
@@ -21,11 +21,11 @@ export function closePopupByEsc(evt) {
  export function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closePopupByEsc);
-    document.addEventListener('mousedown', popupCloseOverlay);
+    document.addEventListener('mousedown', closePopupOverlay);
   }
   
  export function closePopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closePopupByEsc);
-    document.removeEventListener('mousedown', popupCloseOverlay);
+    document.removeEventListener('mousedown', closePopupOverlay);
   }

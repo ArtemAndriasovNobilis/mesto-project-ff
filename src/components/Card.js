@@ -1,36 +1,46 @@
 const cardTemplate = document.querySelector('#card-element');
 
-export function createCardElement(item) {
-    const cardElement = cardTemplate.content.querySelector('.element').cloneNode(true);
-    const cardTitle = cardElement.querySelector('.element__title');
-    const cardImage = cardElement.querySelector('.element__image');
-    const cardDelete = cardElement.querySelector('.element__delete');
-    const cardLike = cardElement.querySelector('.element__like');
+// создание карточки
 
-    cardImage.src = item.link;
-    cardImage.alt = item.name;
+export function createCardElement(item, processDelete, processLike, setImage) {
+    const cardElement = cardTemplate.content.querySelector('.element').cloneNode(true);
+
+    const cardTitle = cardElement.querySelector('.element__title');
     cardTitle.textContent = item.name;
 
-    // лайк и удаление карточек
+    const cardImage = cardElement.querySelector('.element__image');
+    cardImage.src = item.link;
+    cardImage.alt = item.name;
 
-    const processDelete = () => {
-        cardElement.remove();
-    };
+    const cardDelete = cardElement.querySelector('.element__delete');
+    cardDelete.addEventListener('click', () => {
+        processDelete(cardDelete.closest('.card'))
+});
 
-    const processLike = () => {
-        cardLike.classList.toggle('element__like_active');
-    }
+cardImage.addEventListener('click', setImage);
 
-    // увеличение изображения
+const cardLike = cardElement.querySelector('.element__like');
+cardLike.addEventListener('click', processLike)
+
+return cardElement;
 
 
-    cardDelete.addEventListener('click', processDelete);
-    cardLike.addEventListener('click', processLike);
-
-    cardImage.addEventListener('click', () => {
-        setImage(evt);
-        openPopup(popupZoomCard);
-    });
-
-    return cardElement;
 };
+
+// удаление карточки
+
+export function processDelete(element) {
+    element.remove()
+};
+
+// лайк карточки
+
+export function processLike(element) {
+    element.target.classList.toggle('element__like_active')
+};
+
+
+
+
+
+
